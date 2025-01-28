@@ -1,14 +1,8 @@
-import { parseAbiItem } from "abitype";
-import { createConfig, factory } from "ponder";
+import { createConfig } from "ponder";
 
 import { http } from "viem";
 
-import { LlamaCoreAbi } from "./abis/LlamaCoreAbi";
-import { LlamaPolicyAbi } from "./abis/LlamaPolicyAbi";
-
-const llamaFactoryEvent = parseAbiItem(
-  "event LlamaInstanceCreated(address indexed deployer, string indexed name, address llamaCore, address llamaExecutor, address llamaPolicy, uint256 chainId)",
-);
+import { HyperfundFactoryAbi } from "./abis/HyperfundFactoryAbi";
 
 export default createConfig({
   networks: {
@@ -18,25 +12,11 @@ export default createConfig({
     },
   },
   contracts: {
-    LlamaCore: {
+    HyperfundFactory: {
       network: "sepolia",
-      abi: LlamaCoreAbi,
-      address: factory({
-        address: "0xFf5d4E226D9A3496EECE31083a8F493edd79AbEB",
-        event: llamaFactoryEvent,
-        parameter: "llamaCore",
-      }),
-      startBlock: 4121269,
-    },
-    LlamaPolicy: {
-      network: "sepolia",
-      abi: LlamaPolicyAbi,
-      address: factory({
-        address: "0xFf5d4E226D9A3496EECE31083a8F493edd79AbEB",
-        event: llamaFactoryEvent,
-        parameter: "llamaPolicy",
-      }),
-      startBlock: 4121269,
+      abi: HyperfundFactoryAbi,
+      address: "0x3B5912158bb9a0aF359dc5298aF8eb28E936a534",
+      startBlock: 7583181,
     },
   },
 });
