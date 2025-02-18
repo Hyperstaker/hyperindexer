@@ -55,3 +55,31 @@ export const fractionRedeemed = onchainTable("fraction_redeemed", (t) => ({
   token: t.hex().notNull(),
   amount: t.bigint(),
 }));
+
+export const staked = onchainTable("staked", (t) => ({
+  hyperstaker: t.hex().notNull(),
+  id: t.text().primaryKey(),
+  hypercertId: t.bigint().notNull(),
+  fractionId: t.bigint().notNull(),
+  from: t.hex().notNull(),
+}));
+
+export const unstaked = onchainTable("unstaked", (t) => ({
+  hyperstaker: t.hex().notNull(),
+  id: t.text().primaryKey(),
+  hypercertId: t.bigint().notNull(),
+  fractionId: t.bigint().notNull(),
+  to: t.hex().notNull(),
+}));
+
+export const rewardClaimed = onchainTable("rewardClaimed", (t) => ({
+  id: t.text().primaryKey(),
+  address: t.hex().notNull(),
+  reward: t.bigint().notNull(),
+}));
+
+export const rewardSet = onchainTable("rewardSet", (t) => ({
+  id: t.text().primaryKey(),
+  token: t.hex().notNull(),
+  amount: t.bigint().notNull(),
+}));

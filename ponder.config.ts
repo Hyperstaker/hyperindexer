@@ -4,6 +4,7 @@ import { http, parseAbiItem } from "viem";
 
 import { HyperfundFactoryAbi } from "./abis/HyperfundFactoryAbi";
 import { HyperfundAbi } from "./abis/HyperfundAbi";
+import { HyperstakerAbi } from "./abis/HyperstakerAbi";
 
 export default createConfig({
   networks: {
@@ -31,6 +32,21 @@ export default createConfig({
         ),
         // The name of the parameter that contains the address of the new child contract.
         parameter: "hyperfundAddress",
+      }),
+      startBlock: 7583181,
+    },
+    Hyperstaker: {
+      network: "sepolia",
+      abi: HyperstakerAbi,
+      address: factory({
+        // The address of the factory contract that creates instances of this child contract.
+        address: "0xFa9525E19196285Dc69D178C9Fc9F210F9e7F718",
+        // The event emitted by the factory that announces a new instance of this child contract.
+        event: parseAbiItem(
+          "event HyperstakerCreated(address indexed hyperstakerAddress, address indexed manager, uint256 hypercertId)"
+        ),
+        // The name of the parameter that contains the address of the new child contract.
+        parameter: "hyperstakerAddress",
       }),
       startBlock: 7583181,
     },
