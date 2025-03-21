@@ -19,8 +19,9 @@ export const hyperstakerCreated = onchainTable(
 );
 
 export const tokenAllowlisted = onchainTable("token_allowlisted", (t) => ({
+  id: t.text().primaryKey(),
   hyperfund: t.hex().notNull(),
-  token: t.hex().primaryKey(),
+  token: t.hex().notNull(),
   multiplier: t.bigint().notNull(),
 }));
 
@@ -83,3 +84,28 @@ export const rewardSet = onchainTable("rewardSet", (t) => ({
   token: t.hex().notNull(),
   amount: t.bigint().notNull(),
 }));
+
+export const hyperstrategyCreated = onchainTable(
+  "hyperstrategy_created",
+  (t) => ({
+    id: t.text().primaryKey(),
+    hyperstrategy: t.hex().notNull(),
+  })
+);
+
+export const poolFunded = onchainTable("pool_funded", (t) => ({
+  id: t.text().primaryKey(),
+  poolId: t.bigint().notNull(),
+  donor: t.hex().notNull(),
+  hypercertUnits: t.bigint().notNull(),
+  token: t.hex().notNull(),
+  amount: t.bigint().notNull(),
+}));
+
+export const totalFinancialContributionsToPool = onchainTable(
+  "total_financialcontributions_to_pool",
+  (t) => ({
+    poolId: t.bigint().primaryKey(),
+    totalHypercertUnits: t.bigint().notNull(),
+  })
+);

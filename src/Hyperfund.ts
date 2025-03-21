@@ -9,6 +9,7 @@ import {
 
 ponder.on("Hyperfund:TokenAllowlisted", async ({ event, context }) => {
   await context.db.insert(tokenAllowlisted).values({
+    id: event.transaction.hash,
     hyperfund: event.transaction.to as `0x${string}`,
     token: event.args.token,
     multiplier: event.args.multiplier,

@@ -7,8 +7,6 @@ ponder.on("HyperfundFactory:HyperfundCreated", async ({ event, context }) => {
     manager: event.args.manager,
     hypercert: event.args.hypercertId,
   });
-
-  context;
 });
 
 ponder.on("HyperfundFactory:HyperstakerCreated", async ({ event, context }) => {
