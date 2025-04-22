@@ -5,11 +5,11 @@ import { HyperstakerAbi } from "../abis/HyperstakerAbi";
 ponder.on("Hyperstaker:Staked", async ({ event, context }) => {
   const baseHypercertId = await context.client.readContract({
     abi: HyperstakerAbi,
-    address: event.transaction.to as `0x${string}`,
+    address: event.log.address as `0x${string}`,
     functionName: "baseHypercertId",
   });
   await context.db.insert(staked).values({
-    hyperstaker: event.transaction.to as `0x${string}`,
+    hyperstaker: event.log.address as `0x${string}`,
     id: event.transaction.hash,
     hypercertId: baseHypercertId,
     fractionId: event.args.hypercertId,
@@ -20,11 +20,11 @@ ponder.on("Hyperstaker:Staked", async ({ event, context }) => {
 ponder.on("Hyperstaker:Unstaked", async ({ event, context }) => {
   const baseHypercertId = await context.client.readContract({
     abi: HyperstakerAbi,
-    address: event.transaction.to as `0x${string}`,
+    address: event.log.address as `0x${string}`,
     functionName: "baseHypercertId",
   });
   await context.db.insert(unstaked).values({
-    hyperstaker: event.transaction.to as `0x${string}`,
+    hyperstaker: event.log.address as `0x${string}`,
     id: event.transaction.hash,
     hypercertId: baseHypercertId,
     fractionId: event.args.hypercertId,
