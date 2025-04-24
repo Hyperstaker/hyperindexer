@@ -6,7 +6,7 @@ ponder.on("Hyperstaker:Staked", async ({ event, context }) => {
   const baseHypercertId = await context.client.readContract({
     abi: HyperstakerAbi,
     address: event.log.address as `0x${string}`,
-    functionName: "baseHypercertId",
+    functionName: "hypercertTypeId",
   });
   await context.db.insert(staked).values({
     hyperstaker: event.log.address as `0x${string}`,
@@ -21,7 +21,7 @@ ponder.on("Hyperstaker:Unstaked", async ({ event, context }) => {
   const baseHypercertId = await context.client.readContract({
     abi: HyperstakerAbi,
     address: event.log.address as `0x${string}`,
-    functionName: "baseHypercertId",
+    functionName: "hypercertTypeId",
   });
   await context.db.insert(unstaked).values({
     hyperstaker: event.log.address as `0x${string}`,
@@ -35,7 +35,7 @@ ponder.on("Hyperstaker:Unstaked", async ({ event, context }) => {
 ponder.on("Hyperstaker:RewardClaimed", async ({ event, context }) => {
   await context.db.insert(rewardClaimed).values({
     id: event.transaction.hash,
-    address: event.args.user,
+    hypercertId: event.args.hypercertId,
     reward: event.args.reward,
   });
 });

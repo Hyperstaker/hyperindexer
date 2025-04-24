@@ -1,222 +1,488 @@
 export const HyperfundFactoryAbi = [
-  { inputs: [], stateMutability: "nonpayable", type: "constructor" },
   {
-    inputs: [{ internalType: "address", name: "target", type: "address" }],
-    name: "AddressEmptyCode",
-    type: "error",
+    type: "constructor",
+    inputs: [],
+    stateMutability: "nonpayable",
   },
-  { inputs: [], name: "AlreadyDeployed", type: "error" },
-  { inputs: [], name: "DeploymentFailed", type: "error" },
   {
-    inputs: [
-      { internalType: "address", name: "implementation", type: "address" },
+    type: "function",
+    name: "UPGRADE_INTERFACE_VERSION",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "string",
+        internalType: "string",
+      },
     ],
-    name: "ERC1967InvalidImplementation",
-    type: "error",
-  },
-  { inputs: [], name: "ERC1967NonPayable", type: "error" },
-  { inputs: [], name: "FailedCall", type: "error" },
-  { inputs: [], name: "InvalidAddress", type: "error" },
-  { inputs: [], name: "InvalidInitialization", type: "error" },
-  { inputs: [], name: "NotInitializing", type: "error" },
-  { inputs: [], name: "NotOwnerOfHypercert", type: "error" },
-  {
-    inputs: [{ internalType: "address", name: "owner", type: "address" }],
-    name: "OwnableInvalidOwner",
-    type: "error",
+    stateMutability: "view",
   },
   {
-    inputs: [{ internalType: "address", name: "account", type: "address" }],
-    name: "OwnableUnauthorizedAccount",
-    type: "error",
-  },
-  { inputs: [], name: "UUPSUnauthorizedCallContext", type: "error" },
-  {
-    inputs: [{ internalType: "bytes32", name: "slot", type: "bytes32" }],
-    name: "UUPSUnsupportedProxiableUUID",
-    type: "error",
-  },
-  {
-    anonymous: false,
+    type: "function",
+    name: "createHyperfund",
     inputs: [
       {
-        indexed: true,
-        internalType: "address",
-        name: "hyperfundAddress",
-        type: "address",
+        name: "hypercertTypeId",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        indexed: true,
+        name: "admin",
+        type: "address",
         internalType: "address",
+      },
+      {
         name: "manager",
         type: "address",
+        internalType: "address",
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "hypercertId",
-        type: "uint256",
+        name: "pauser",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "upgrader",
+        type: "address",
+        internalType: "address",
       },
     ],
-    name: "HyperfundCreated",
-    type: "event",
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
   },
   {
-    anonymous: false,
+    type: "function",
+    name: "createHyperstaker",
     inputs: [
       {
-        indexed: true,
-        internalType: "address",
-        name: "hyperstakerAddress",
-        type: "address",
+        name: "hypercertTypeId",
+        type: "uint256",
+        internalType: "uint256",
       },
       {
-        indexed: true,
+        name: "admin",
+        type: "address",
         internalType: "address",
+      },
+      {
         name: "manager",
         type: "address",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "hypercertId",
-        type: "uint256",
-      },
-    ],
-    name: "HyperstakerCreated",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: false,
-        internalType: "uint64",
-        name: "version",
-        type: "uint64",
-      },
-    ],
-    name: "Initialized",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
         internalType: "address",
-        name: "previousOwner",
+      },
+      {
+        name: "pauser",
         type: "address",
+        internalType: "address",
       },
       {
-        indexed: true,
+        name: "upgrader",
+        type: "address",
         internalType: "address",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "createProject",
+    inputs: [
+      {
+        name: "hypercertTypeId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+      {
+        name: "admin",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "manager",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "pauser",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "upgrader",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [
+      {
+        name: "hyperfund",
+        type: "address",
+        internalType: "address",
+      },
+      {
+        name: "hyperstaker",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "hyperfunds",
+    inputs: [
+      {
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "hyperstakers",
+    inputs: [
+      {
+        name: "",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "bool",
+        internalType: "bool",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "initialize",
+    inputs: [
+      {
+        name: "_hypercertMinter",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "owner",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "proxiableUUID",
+    inputs: [],
+    outputs: [
+      {
+        name: "",
+        type: "bytes32",
+        internalType: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    name: "renounceOwnership",
+    inputs: [],
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    name: "transferOwnership",
+    inputs: [
+      {
         name: "newOwner",
         type: "address",
+        internalType: "address",
       },
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    outputs: [],
+    stateMutability: "nonpayable",
   },
   {
-    anonymous: false,
+    type: "function",
+    name: "upgradeToAndCall",
     inputs: [
       {
-        indexed: true,
-        internalType: "address",
-        name: "implementation",
+        name: "newImplementation",
         type: "address",
+        internalType: "address",
+      },
+      {
+        name: "data",
+        type: "bytes",
+        internalType: "bytes",
       },
     ],
-    name: "Upgraded",
-    type: "event",
-  },
-  {
-    inputs: [],
-    name: "UPGRADE_INTERFACE_VERSION",
-    outputs: [{ internalType: "string", name: "", type: "string" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "hypercertId", type: "uint256" },
-      { internalType: "address", name: "manager", type: "address" },
-    ],
-    name: "createHyperfund",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "uint256", name: "hypercertId", type: "uint256" },
-      { internalType: "address", name: "manager", type: "address" },
-    ],
-    name: "createHyperstaker",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    name: "hyperfunds",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    name: "hyperstakers",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "_hypercertMinter", type: "address" },
-    ],
-    name: "initialize",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "owner",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "proxiableUUID",
-    outputs: [{ internalType: "bytes32", name: "", type: "bytes32" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "newOwner", type: "address" }],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "newImplementation", type: "address" },
-      { internalType: "bytes", name: "data", type: "bytes" },
-    ],
-    name: "upgradeToAndCall",
     outputs: [],
     stateMutability: "payable",
-    type: "function",
+  },
+  {
+    type: "event",
+    name: "HyperfundCreated",
+    inputs: [
+      {
+        name: "hyperfundAddress",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "hypercertId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "admin",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "manager",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "pauser",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "upgrader",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "HyperstakerCreated",
+    inputs: [
+      {
+        name: "hyperstakerAddress",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "hypercertId",
+        type: "uint256",
+        indexed: true,
+        internalType: "uint256",
+      },
+      {
+        name: "admin",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "manager",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "pauser",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+      {
+        name: "upgrader",
+        type: "address",
+        indexed: false,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Initialized",
+    inputs: [
+      {
+        name: "version",
+        type: "uint64",
+        indexed: false,
+        internalType: "uint64",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "OwnershipTransferred",
+    inputs: [
+      {
+        name: "previousOwner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+      {
+        name: "newOwner",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "event",
+    name: "Upgraded",
+    inputs: [
+      {
+        name: "implementation",
+        type: "address",
+        indexed: true,
+        internalType: "address",
+      },
+    ],
+    anonymous: false,
+  },
+  {
+    type: "error",
+    name: "AddressEmptyCode",
+    inputs: [
+      {
+        name: "target",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
+    name: "AlreadyDeployed",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "DeploymentFailed",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "ERC1967InvalidImplementation",
+    inputs: [
+      {
+        name: "implementation",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
+    name: "ERC1967NonPayable",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "FailedCall",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "InvalidAddress",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "InvalidInitialization",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "NotInitializing",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "NotOwnerOfHypercert",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "OwnableInvalidOwner",
+    inputs: [
+      {
+        name: "owner",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
+    name: "OwnableUnauthorizedAccount",
+    inputs: [
+      {
+        name: "account",
+        type: "address",
+        internalType: "address",
+      },
+    ],
+  },
+  {
+    type: "error",
+    name: "UUPSUnauthorizedCallContext",
+    inputs: [],
+  },
+  {
+    type: "error",
+    name: "UUPSUnsupportedProxiableUUID",
+    inputs: [
+      {
+        name: "slot",
+        type: "bytes32",
+        internalType: "bytes32",
+      },
+    ],
   },
 ] as const;

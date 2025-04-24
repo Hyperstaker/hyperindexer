@@ -25,21 +25,6 @@ export const tokenAllowlisted = onchainTable("token_allowlisted", (t) => ({
   multiplier: t.bigint().notNull(),
 }));
 
-export const donationsWithdrawn = onchainTable("donation_withdrawn", (t) => ({
-  hyperfund: t.hex().notNull(),
-  id: t.text().primaryKey(),
-  token: t.hex(),
-  amount: t.bigint().notNull(),
-  to: t.hex(),
-}));
-
-export const donationReceived = onchainTable("donation_received", (t) => ({
-  hyperfund: t.hex().notNull(),
-  id: t.text().primaryKey(),
-  token: t.hex(),
-  amount: t.bigint().notNull(),
-}));
-
 export const nonfinancialContribution = onchainTable(
   "nonfinancial_contributions",
   (t) => ({
@@ -75,7 +60,7 @@ export const unstaked = onchainTable("unstaked", (t) => ({
 
 export const rewardClaimed = onchainTable("rewardClaimed", (t) => ({
   id: t.text().primaryKey(),
-  address: t.hex().notNull(),
+  hypercertId: t.bigint().notNull(),
   reward: t.bigint().notNull(),
 }));
 

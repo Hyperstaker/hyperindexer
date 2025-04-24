@@ -19,38 +19,38 @@ export default createConfig({
     HyperfundFactory: {
       network: "sepolia",
       abi: HyperfundFactoryAbi,
-      address: "0xFa9525E19196285Dc69D178C9Fc9F210F9e7F718",
-      startBlock: 7583181,
+      address: "0xd75B857560E4d07d43FfD474A22b1d7775F4fCfF",
+      startBlock: 8185000,
     },
     Hyperfund: {
       network: "sepolia",
       abi: HyperfundAbi,
       address: factory({
         // The address of the factory contract that creates instances of this child contract.
-        address: "0xFa9525E19196285Dc69D178C9Fc9F210F9e7F718",
+        address: "0xd75B857560E4d07d43FfD474A22b1d7775F4fCfF",
         // The event emitted by the factory that announces a new instance of this child contract.
         event: parseAbiItem(
-          "event HyperfundCreated(address indexed hyperfundAddress, address indexed manager, uint256 hypercertId)"
+          "event HyperfundCreated(address indexed hyperfundAddress, uint256 indexed hypercertId, address admin, address manager, address pauser, address upgrader)"
         ),
         // The name of the parameter that contains the address of the new child contract.
         parameter: "hyperfundAddress",
       }),
-      startBlock: 7583181,
+      startBlock: 8185000,
     },
     Hyperstaker: {
       network: "sepolia",
       abi: HyperstakerAbi,
       address: factory({
         // The address of the factory contract that creates instances of this child contract.
-        address: "0xFa9525E19196285Dc69D178C9Fc9F210F9e7F718",
+        address: "0xd75B857560E4d07d43FfD474A22b1d7775F4fCfF",
         // The event emitted by the factory that announces a new instance of this child contract.
         event: parseAbiItem(
-          "event HyperstakerCreated(address indexed hyperstakerAddress, address indexed manager, uint256 hypercertId)"
+          "event HyperstakerCreated(address indexed hyperstakerAddress, uint256 hypercertId, address admin, address manager, address pauser, address upgrader)"
         ),
         // The name of the parameter that contains the address of the new child contract.
         parameter: "hyperstakerAddress",
       }),
-      startBlock: 7583181,
+      startBlock: 8185000,
     },
     hyperstrategyFactory: {
       network: "sepolia",

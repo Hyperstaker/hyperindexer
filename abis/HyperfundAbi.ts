@@ -1,420 +1,867 @@
 export const HyperfundAbi = [
   {
+    inputs: [],
+    stateMutability: "nonpayable",
     type: "constructor",
-    inputs: [
-      { name: "_hypercertMinter", type: "address", internalType: "address" },
-      { name: "_hypercertId", type: "uint256", internalType: "uint256" },
-      { name: "_manager", type: "address", internalType: "address" },
-    ],
-    stateMutability: "nonpayable",
   },
   {
-    type: "function",
-    name: "DEFAULT_ADMIN_ROLE",
     inputs: [],
-    outputs: [{ name: "", type: "bytes32", internalType: "bytes32" }],
-    stateMutability: "view",
+    name: "AccessControlBadConfirmation",
+    type: "error",
   },
   {
-    type: "function",
-    name: "MANAGER_ROLE",
-    inputs: [],
-    outputs: [{ name: "", type: "bytes32", internalType: "bytes32" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "PAUSER_ROLE",
-    inputs: [],
-    outputs: [{ name: "", type: "bytes32", internalType: "bytes32" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "allowlistToken",
-    inputs: [
-      { name: "_token", type: "address", internalType: "address" },
-      { name: "_multiplier", type: "int256", internalType: "int256" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "donate",
-    inputs: [
-      { name: "_token", type: "address", internalType: "address" },
-      { name: "_amount", type: "uint256", internalType: "uint256" },
-    ],
-    outputs: [],
-    stateMutability: "payable",
-  },
-  {
-    type: "function",
-    name: "getRoleAdmin",
-    inputs: [{ name: "role", type: "bytes32", internalType: "bytes32" }],
-    outputs: [{ name: "", type: "bytes32", internalType: "bytes32" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "grantRole",
-    inputs: [
-      { name: "role", type: "bytes32", internalType: "bytes32" },
-      { name: "account", type: "address", internalType: "address" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "hasRole",
-    inputs: [
-      { name: "role", type: "bytes32", internalType: "bytes32" },
-      { name: "account", type: "address", internalType: "address" },
-    ],
-    outputs: [{ name: "", type: "bool", internalType: "bool" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "hypercertId",
-    inputs: [],
-    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "hypercertMinter",
-    inputs: [],
-    outputs: [
-      { name: "", type: "address", internalType: "contract IHypercertToken" },
-    ],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "hypercertTypeId",
-    inputs: [],
-    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "hypercertUnits",
-    inputs: [],
-    outputs: [{ name: "", type: "uint256", internalType: "uint256" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "nonfinancialContribution",
-    inputs: [
-      { name: "_contributor", type: "address", internalType: "address" },
-      { name: "_units", type: "uint256", internalType: "uint256" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "nonfinancialContributions",
-    inputs: [{ name: "contributor", type: "address", internalType: "address" }],
-    outputs: [{ name: "units", type: "uint256", internalType: "uint256" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "pause",
-    inputs: [],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "paused",
-    inputs: [],
-    outputs: [{ name: "", type: "bool", internalType: "bool" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "redeem",
-    inputs: [
-      { name: "_fractionId", type: "uint256", internalType: "uint256" },
-      { name: "_token", type: "address", internalType: "address" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "renounceRole",
-    inputs: [
-      { name: "role", type: "bytes32", internalType: "bytes32" },
-      { name: "callerConfirmation", type: "address", internalType: "address" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "revokeRole",
-    inputs: [
-      { name: "role", type: "bytes32", internalType: "bytes32" },
-      { name: "account", type: "address", internalType: "address" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "supportsInterface",
-    inputs: [{ name: "interfaceId", type: "bytes4", internalType: "bytes4" }],
-    outputs: [{ name: "", type: "bool", internalType: "bool" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "tokenMultipliers",
-    inputs: [{ name: "token", type: "address", internalType: "address" }],
-    outputs: [{ name: "multiplier", type: "int256", internalType: "int256" }],
-    stateMutability: "view",
-  },
-  {
-    type: "function",
-    name: "unpause",
-    inputs: [],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "function",
-    name: "withdrawDonations",
-    inputs: [
-      { name: "_token", type: "address", internalType: "address" },
-      { name: "_amount", type: "uint256", internalType: "uint256" },
-      { name: "_to", type: "address", internalType: "address" },
-    ],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-  {
-    type: "event",
-    name: "DonationReceived",
     inputs: [
       {
-        name: "token",
-        type: "address",
-        indexed: false,
         internalType: "address",
+        name: "account",
+        type: "address",
       },
       {
-        name: "amount",
+        internalType: "bytes32",
+        name: "neededRole",
+        type: "bytes32",
+      },
+    ],
+    name: "AccessControlUnauthorizedAccount",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "target",
+        type: "address",
+      },
+    ],
+    name: "AddressEmptyCode",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "availableSupply",
         type: "uint256",
+      },
+    ],
+    name: "AmountExceedsAvailableSupply",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ArrayLengthsMismatch",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
+    ],
+    name: "ERC1967InvalidImplementation",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ERC1967NonPayable",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "EnforcedPause",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "ExpectedPause",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "FailedCall",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InvalidAddress",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InvalidAmount",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "InvalidInitialization",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "NotAllowlisted",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "rightHypercertId",
+        type: "uint256",
+      },
+    ],
+    name: "NotFractionOfThisHypercert",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "NotInitializing",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TokenNotAllowlisted",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "TransferFailed",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "UUPSUnauthorizedCallContext",
+    type: "error",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "slot",
+        type: "bytes32",
+      },
+    ],
+    name: "UUPSUnsupportedProxiableUUID",
+    type: "error",
+  },
+  {
+    inputs: [],
+    name: "Unauthorized",
+    type: "error",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: false,
         internalType: "uint256",
+        name: "hypercertId",
+        type: "uint256",
       },
-    ],
-    anonymous: false,
-  },
-  {
-    type: "event",
-    name: "DonationsWithdrawn",
-    inputs: [
       {
-        name: "token",
-        type: "address",
         indexed: false,
         internalType: "address",
+        name: "token",
+        type: "address",
       },
       {
-        name: "amount",
-        type: "uint256",
         indexed: false,
         internalType: "uint256",
+        name: "amount",
+        type: "uint256",
       },
-      { name: "to", type: "address", indexed: false, internalType: "address" },
     ],
-    anonymous: false,
-  },
-  {
-    type: "event",
     name: "FractionRedeemed",
-    inputs: [
-      {
-        name: "fractionId",
-        type: "uint256",
-        indexed: false,
-        internalType: "uint256",
-      },
-      {
-        name: "token",
-        type: "address",
-        indexed: false,
-        internalType: "address",
-      },
-      {
-        name: "amount",
-        type: "uint256",
-        indexed: false,
-        internalType: "uint256",
-      },
-    ],
-    anonymous: false,
+    type: "event",
   },
   {
-    type: "event",
-    name: "NonfinancialContribution",
+    anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: "address",
+        name: "token",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "Funded",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "token",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+    ],
+    name: "FundsWithdrawn",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint64",
+        name: "version",
+        type: "uint64",
+      },
+    ],
+    name: "Initialized",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
         name: "contributor",
         type: "address",
-        indexed: false,
-        internalType: "address",
       },
       {
-        name: "units",
-        type: "uint256",
         indexed: false,
         internalType: "uint256",
+        name: "units",
+        type: "uint256",
       },
     ],
-    anonymous: false,
+    name: "NonfinancialContribution",
+    type: "event",
   },
   {
-    type: "event",
-    name: "Paused",
+    anonymous: false,
     inputs: [
       {
-        name: "account",
-        type: "address",
         indexed: false,
         internalType: "address",
+        name: "account",
+        type: "address",
       },
     ],
-    anonymous: false,
+    name: "Paused",
+    type: "event",
   },
   {
-    type: "event",
-    name: "RoleAdminChanged",
+    anonymous: false,
     inputs: [
-      { name: "role", type: "bytes32", indexed: true, internalType: "bytes32" },
       {
+        indexed: true,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "bytes32",
         name: "previousAdminRole",
         type: "bytes32",
-        indexed: true,
-        internalType: "bytes32",
       },
       {
+        indexed: true,
+        internalType: "bytes32",
         name: "newAdminRole",
         type: "bytes32",
+      },
+    ],
+    name: "RoleAdminChanged",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
         indexed: true,
         internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sender",
+        type: "address",
       },
     ],
-    anonymous: false,
-  },
-  {
-    type: "event",
     name: "RoleGranted",
-    inputs: [
-      { name: "role", type: "bytes32", indexed: true, internalType: "bytes32" },
-      {
-        name: "account",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "sender",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
+    type: "event",
   },
   {
-    type: "event",
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
+    ],
     name: "RoleRevoked",
-    inputs: [
-      { name: "role", type: "bytes32", indexed: true, internalType: "bytes32" },
-      {
-        name: "account",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-      {
-        name: "sender",
-        type: "address",
-        indexed: true,
-        internalType: "address",
-      },
-    ],
-    anonymous: false,
+    type: "event",
   },
   {
-    type: "event",
-    name: "TokenAllowlisted",
+    anonymous: false,
     inputs: [
       {
+        indexed: false,
+        internalType: "address",
         name: "token",
         type: "address",
-        indexed: false,
-        internalType: "address",
       },
       {
-        name: "multiplier",
-        type: "int256",
         indexed: false,
         internalType: "int256",
+        name: "multiplier",
+        type: "int256",
       },
     ],
-    anonymous: false,
+    name: "TokenAllowlisted",
+    type: "event",
   },
   {
-    type: "event",
-    name: "Unpaused",
+    anonymous: false,
     inputs: [
       {
-        name: "account",
-        type: "address",
         indexed: false,
         internalType: "address",
+        name: "account",
+        type: "address",
       },
     ],
+    name: "Unpaused",
+    type: "event",
+  },
+  {
     anonymous: false,
-  },
-  { type: "error", name: "AccessControlBadConfirmation", inputs: [] },
-  {
-    type: "error",
-    name: "AccessControlUnauthorizedAccount",
     inputs: [
-      { name: "account", type: "address", internalType: "address" },
-      { name: "neededRole", type: "bytes32", internalType: "bytes32" },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "implementation",
+        type: "address",
+      },
     ],
+    name: "Upgraded",
+    type: "event",
   },
   {
-    type: "error",
-    name: "AmountExceedsAvailableSupply",
-    inputs: [
-      { name: "availableSupply", type: "uint256", internalType: "uint256" },
+    inputs: [],
+    name: "DEFAULT_ADMIN_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
     ],
+    stateMutability: "view",
+    type: "function",
   },
-  { type: "error", name: "EnforcedPause", inputs: [] },
-  { type: "error", name: "ExpectedPause", inputs: [] },
-  { type: "error", name: "InvalidAddress", inputs: [] },
-  { type: "error", name: "InvalidAmount", inputs: [] },
   {
-    type: "error",
-    name: "NotFractionOfThisHypercert",
-    inputs: [
-      { name: "rightHypercertId", type: "uint256", internalType: "uint256" },
+    inputs: [],
+    name: "MANAGER_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
     ],
+    stateMutability: "view",
+    type: "function",
   },
-  { type: "error", name: "TokenNotAllowlisted", inputs: [] },
-  { type: "error", name: "TransferFailed", inputs: [] },
-  { type: "error", name: "Unauthorized", inputs: [] },
+  {
+    inputs: [],
+    name: "PAUSER_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "UPGRADER_ROLE",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "UPGRADE_INTERFACE_VERSION",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_token",
+        type: "address",
+      },
+      {
+        internalType: "int256",
+        name: "_multiplier",
+        type: "int256",
+      },
+    ],
+    name: "allowlistToken",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_token",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
+    ],
+    name: "fund",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+    ],
+    name: "getRoleAdmin",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "grantRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "hasRole",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "hypercertId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "hypercertMinter",
+    outputs: [
+      {
+        internalType: "contract IHypercertToken",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "hypercertTypeId",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "hypercertUnits",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_hypercertMinter",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_hypercertTypeId",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_admin",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_manager",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_pauser",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "_upgrader",
+        type: "address",
+      },
+    ],
+    name: "initialize",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address[]",
+        name: "_contributors",
+        type: "address[]",
+      },
+      {
+        internalType: "uint256[]",
+        name: "_units",
+        type: "uint256[]",
+      },
+    ],
+    name: "nonFinancialContributions",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_contributor",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_units",
+        type: "uint256",
+      },
+    ],
+    name: "nonfinancialContribution",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "contributor",
+        type: "address",
+      },
+    ],
+    name: "nonfinancialContributions",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "units",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "pause",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "paused",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "proxiableUUID",
+    outputs: [
+      {
+        internalType: "bytes32",
+        name: "",
+        type: "bytes32",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "_fractionId",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_token",
+        type: "address",
+      },
+    ],
+    name: "redeem",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "callerConfirmation",
+        type: "address",
+      },
+    ],
+    name: "renounceRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes32",
+        name: "role",
+        type: "bytes32",
+      },
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "revokeRole",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "bytes4",
+        name: "interfaceId",
+        type: "bytes4",
+      },
+    ],
+    name: "supportsInterface",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "token",
+        type: "address",
+      },
+    ],
+    name: "tokenMultipliers",
+    outputs: [
+      {
+        internalType: "int256",
+        name: "multiplier",
+        type: "int256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "unpause",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "newImplementation",
+        type: "address",
+      },
+      {
+        internalType: "bytes",
+        name: "data",
+        type: "bytes",
+      },
+    ],
+    name: "upgradeToAndCall",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "_token",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "_amount",
+        type: "uint256",
+      },
+      {
+        internalType: "address",
+        name: "_to",
+        type: "address",
+      },
+    ],
+    name: "withdrawFunds",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
 ] as const;
