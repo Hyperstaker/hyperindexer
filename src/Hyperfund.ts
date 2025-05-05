@@ -25,6 +25,7 @@ ponder.on("Hyperfund:NonfinancialContribution", async ({ event, context }) => {
 
 ponder.on("Hyperfund:FractionRedeemed", async ({ event, context }) => {
   await context.db.insert(fractionRedeemed).values({
+    address: event.transaction.from,
     fraction: event.args.hypercertId,
     hyperfund: event.log.address as `0x${string}`,
     token: event.args.token,

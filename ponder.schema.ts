@@ -40,6 +40,7 @@ export const fractionRedeemed = onchainTable("fraction_redeemed", (t) => ({
   fraction: t.bigint().primaryKey().notNull(),
   token: t.hex().notNull(),
   amount: t.bigint(),
+  address: t.hex().notNull(),
 }));
 
 export const staked = onchainTable("staked", (t) => ({
