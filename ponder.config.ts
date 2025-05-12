@@ -103,7 +103,7 @@ export default createConfig({
           startBlock: 7583181,
         },
         celo: {
-          address: "0x6B4d1e62a0F1915C38C4460b18613885A67695C7",
+          address: "0xD67030174E90400432e93Da55C7E589D831ceAD8",
           startBlock: 34637556,
         },
       },
@@ -125,7 +125,7 @@ export default createConfig({
           startBlock: 7583181,
         },
         celo: {
-          address: "0x6B4d1e62a0F1915C38C4460b18613885A67695C7",
+          address: "0xD67030174E90400432e93Da55C7E589D831ceAD8",
           startBlock: 34637556,
         },
       },
