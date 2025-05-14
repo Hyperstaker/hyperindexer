@@ -7,6 +7,7 @@ import { HyperfundAbi } from "./abis/HyperfundAbi";
 import { HyperstakerAbi } from "./abis/HyperstakerAbi";
 import { HyperStrategyFactoryAbi } from "./abis/HyperStrategyFactoryAbi";
 import { HyperStrategyAbi } from "./abis/HyperStrategyAbi";
+import { HyperStrategyAbiMainnet } from "./abis/HyperStrategyAbiMainnet";
 
 export default createConfig({
   networks: {
@@ -138,7 +139,7 @@ export default createConfig({
           startBlock: 34637556,
         },
       },
-      abi: HyperStrategyAbi,
+      abi: HyperStrategyAbiMainnet,
     },
   },
 });
