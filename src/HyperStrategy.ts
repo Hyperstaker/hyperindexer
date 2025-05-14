@@ -1,10 +1,10 @@
 import { ponder } from "ponder:registry";
 import { poolFunded, totalFinancialContributionsToPool } from "ponder:schema";
-import { HyperStrategyAbi } from "../abis/HyperStrategyAbi";
+import { HyperStrategyAbiMainnet } from "../abis/HyperStrategyAbiMainnet";
 
 ponder.on("Hyperstrategy:Donated", async ({ event, context }) => {
   const poolId = await context.client.readContract({
-    abi: HyperStrategyAbi,
+    abi: HyperStrategyAbiMainnet,
     address: event.log.address,
     functionName: "getPoolId",
   });
