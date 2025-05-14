@@ -125,7 +125,16 @@ export default createConfig({
           startBlock: 7583181,
         },
         celo: {
-          address: "0xD67030174E90400432e93Da55C7E589D831ceAD8",
+          address: factory({
+            // The address of the factory contract that creates instances of this child contract.
+            address: "0xD67030174E90400432e93Da55C7E589D831ceAD8",
+            // The event emitted by the factory that announces a new instance of this child contract.
+            event: parseAbiItem(
+              "event HyperstrategyCreated(address indexed hyperstrategyAddress, address allo)"
+            ),
+            // The name of the parameter that contains the address of the new child contract.
+            parameter: "hyperstrategyAddress",
+          }),
           startBlock: 34637556,
         },
       },
