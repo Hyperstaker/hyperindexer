@@ -12,9 +12,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "ponder": "^0.8.33",
+    "@types/uuid": "^10.0.0",
     "abitype": "^0.10.2",
     "hono": "^4.5.0",
+    "ponder": "^0.8.33",
+    "uuid": "^11.1.0",
     "viem": "^2.21.3"
   },
   "devDependencies": {
