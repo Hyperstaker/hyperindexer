@@ -8,7 +8,7 @@ import { HyperstakerAbi } from "./abis/HyperstakerAbi";
 import { HyperStrategyFactoryAbi } from "./abis/HyperStrategyFactoryAbi";
 import { HyperStrategyAbi } from "./abis/HyperStrategyAbi";
 import { HyperStrategyAbiMainnet } from "./abis/HyperStrategyAbiMainnet";
-
+import { AlloRegistryAbi } from "./abis/AlloRegistryAbi";
 export default createConfig({
   networks: {
     sepolia: {
@@ -140,6 +140,19 @@ export default createConfig({
         },
       },
       abi: HyperStrategyAbiMainnet,
+    },
+    AlloRegistry: {
+      network: {
+        sepolia: {
+          address: "0x4AAcca72145e1dF2aeC137E1f3C5E3D75DB8b5f3",
+          startBlock: 7553181,
+        },
+        celo: {
+          address: "0x4AAcca72145e1dF2aeC137E1f3C5E3D75DB8b5f3",
+          startBlock: 33682763,
+        },
+      },
+      abi: AlloRegistryAbi,
     },
   },
 });

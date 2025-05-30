@@ -95,3 +95,10 @@ export const totalFinancialContributionsToPool = onchainTable(
     totalHypercertUnits: t.bigint().notNull(),
   })
 );
+
+export const alloProfile = onchainTable("allo_profile", (t) => ({
+  id: t.text().primaryKey(),
+  alloProfileId: t.hex().notNull(),
+  name: t.text().notNull(),
+  metadata: t.jsonb().notNull(),
+}));
