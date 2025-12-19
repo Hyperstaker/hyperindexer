@@ -14,10 +14,12 @@ export default createConfig({
     sepolia: {
       chainId: 11155111,
       transport: http(process.env.PONDER_RPC_URL_11155111),
+      pollingInterval: 5_000, // 5 seconds
     },
     celo: {
       chainId: 42220,
       transport: http(process.env.PONDER_RPC_URL_42220),
+      pollingInterval: 5_000, // 5 seconds
     },
   },
   contracts: {
